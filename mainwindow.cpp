@@ -71,3 +71,21 @@ void MainWindow::on_remove_all_clicked() {
     ui->current_expression->setText("0");
     ui->stored_expression->setText("");
 }
+
+void MainWindow::on_addition_clicked() {
+    if (first_action == 1) {
+        storable_variable = ui->current_expression->text().toInt();
+        current_string = "";
+        ui->current_expression->setText("0");
+        ui->stored_expression->setText(QString::number(storable_variable) + " + ");
+        
+        first_action = 0;
+    }
+    
+    else {
+        storable_variable = storable_variable + ui->current_expression->text().toInt();
+        current_string = "";
+        ui->current_expression->setText("0");
+        ui->stored_expression->setText(QString::number(storable_variable) + " + ");
+    }
+}
