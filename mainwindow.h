@@ -14,22 +14,24 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void do_last_action(QString new_action);
     
 private slots:
-    void on_add_0_clicked();    
-    void on_add_1_clicked();    
+    void on_add_0_clicked();
+    void on_add_1_clicked();
     void on_add_2_clicked();
-    void on_add_3_clicked();    
-    void on_add_4_clicked();    
-    void on_add_5_clicked();    
-    void on_add_6_clicked();    
-    void on_add_7_clicked();    
-    void on_add_8_clicked();    
+    void on_add_3_clicked();
+    void on_add_4_clicked();
+    void on_add_5_clicked();
+    void on_add_6_clicked();
+    void on_add_7_clicked();
+    void on_add_8_clicked();
     void on_add_9_clicked();
     
     void on_remove_all_clicked();
     
     void on_addition_clicked();
+    void on_subtraction_clicked();
     
 private:
     Ui::MainWindow *ui;
@@ -37,5 +39,7 @@ private:
     bool first_action = 1;
     
     int storable_variable = 0;
+    
+    QString last_action = "";
 };
 #endif // MAINWINDOW_H

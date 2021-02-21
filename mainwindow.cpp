@@ -13,6 +13,29 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::do_last_action(QString new_action) {    
+    if(last_action == "+") {
+        storable_variable = storable_variable + ui->current_expression->text().toInt();
+    }
+    
+    else if (last_action == "-") {
+        storable_variable = storable_variable - ui->current_expression->text().toInt();
+    }
+    
+    else if (last_action == "*") {
+        
+    }
+    
+    else {
+        storable_variable = ui->current_expression->text().toInt();
+    }
+    
+    current_string = "";
+    ui->current_expression->setText("0");
+    ui->stored_expression->setText(QString::number(storable_variable) + new_action);
+    
+    last_action = new_action;
+}
 
 void MainWindow::on_add_0_clicked() {
     if(ui->current_expression->text() != "0") {
@@ -73,19 +96,13 @@ void MainWindow::on_remove_all_clicked() {
 }
 
 void MainWindow::on_addition_clicked() {
-    if (first_action == 1) {
-        storable_variable = ui->current_expression->text().toInt();
-        current_string = "";
-        ui->current_expression->setText("0");
-        ui->stored_expression->setText(QString::number(storable_variable) + " + ");
-        
-        first_action = 0;
-    }
-    
-    else {
-        storable_variable = storable_variable + ui->current_expression->text().toInt();
-        current_string = "";
-        ui->current_expression->setText("0");
-        ui->stored_expression->setText(QString::number(storable_variable) + " + ");
-    }
+    do_last_action("+");
+}
+
+void MainWindow::on_subtraction_clicked() {
+    do_last_action("-");
+}
+
+void MainWindow::on_multiplication_clicked() {
+    do_last_action("*");
 }
