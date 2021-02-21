@@ -33,12 +33,18 @@ private slots:
     void on_addition_clicked();
     void on_subtraction_clicked();
     
+    void on_multiplication_clicked();
+    
+    void on_division_clicked();
+    
+    void on_equals_clicked();
+    
 private:
     Ui::MainWindow *ui;
     QString current_string = "";
     bool first_action = 1;
     
-    int storable_variable = 0;
+    double storable_variable = 0;
     
     QString last_action = "";
 };

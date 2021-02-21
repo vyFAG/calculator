@@ -23,7 +23,11 @@ void MainWindow::do_last_action(QString new_action) {
     }
     
     else if (last_action == "*") {
-        
+        storable_variable = storable_variable * ui->current_expression->text().toInt();
+    }
+    
+    else if (last_action == "/") {
+        storable_variable = storable_variable / ui->current_expression->text().toInt();
     }
     
     else {
@@ -105,4 +109,13 @@ void MainWindow::on_subtraction_clicked() {
 
 void MainWindow::on_multiplication_clicked() {
     do_last_action("*");
+}
+
+void MainWindow::on_division_clicked() {
+    do_last_action("/");
+}
+
+void MainWindow::on_equals_clicked() {
+    do_last_action("");
+    ui->stored_expression->setText(QString::number(storable_variable));
 }
